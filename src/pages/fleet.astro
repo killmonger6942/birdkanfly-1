@@ -1,0 +1,257 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const aircraft = [
+  {
+    name: 'Cessna 172 Skyhawk',
+    type: 'Single Engine Trainer',
+    count: '8 Aircraft',
+    image: 'https://images.unsplash.com/photo-1559628233-100c798642d4?w=600&h=400&fit=crop',
+    specs: {
+      engine: 'Lycoming IO-360-L2A',
+      power: '180 HP',
+      cruise: '122 knots',
+      range: '640 nm',
+    },
+    features: ['Glass cockpit (G1000)', 'IFR certified', 'Air-conditioned', 'Autopilot equipped'],
+    usedFor: 'PPL, CPL Basic Training',
+  },
+  {
+    name: 'Piper PA-28 Cherokee',
+    type: 'Single Engine Trainer',
+    count: '4 Aircraft',
+    image: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&h=400&fit=crop',
+    specs: {
+      engine: 'Lycoming O-320',
+      power: '160 HP',
+      cruise: '115 knots',
+      range: '550 nm',
+    },
+    features: ['Low-wing design', 'Stable platform', 'Cross-country capable', 'Night VFR equipped'],
+    usedFor: 'PPL, Initial Training',
+  },
+  {
+    name: 'Diamond DA42 Twin Star',
+    type: 'Multi-Engine Trainer',
+    count: '2 Aircraft',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+    specs: {
+      engine: 'Austro AE300 (x2)',
+      power: '168 HP each',
+      cruise: '176 knots',
+      range: '1,079 nm',
+    },
+    features: ['Diesel engines', 'Full glass cockpit', 'FADEC system', 'Advanced autopilot'],
+    usedFor: 'Multi-Engine Rating, CPL Advanced',
+  },
+  {
+    name: 'Cessna 152',
+    type: 'Single Engine Trainer',
+    count: '3 Aircraft',
+    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&h=400&fit=crop',
+    specs: {
+      engine: 'Lycoming O-235',
+      power: '110 HP',
+      cruise: '107 knots',
+      range: '415 nm',
+    },
+    features: ['Economic operation', 'Ideal for beginners', 'Responsive controls', 'Cost-effective training'],
+    usedFor: 'Initial PPL Training, Solo Practice',
+  },
+];
+
+const facilities = [
+  {
+    name: 'Modern Classrooms',
+    description: 'Air-conditioned classrooms equipped with multimedia systems, flight simulators displays, and interactive learning tools.',
+    icon: '🏫',
+  },
+  {
+    name: 'Flight Simulators',
+    description: 'FNPT II certified simulators for instrument training, emergency procedures, and cross-country navigation practice.',
+    icon: '🎮',
+  },
+  {
+    name: 'Briefing Rooms',
+    description: 'Dedicated pre and post-flight briefing rooms with weather displays, flight planning stations, and debriefing facilities.',
+    icon: '📋',
+  },
+  {
+    name: 'Maintenance Hangar',
+    description: 'On-site maintenance facility with DGCA-approved AMO ensuring our aircraft are always in top condition.',
+    icon: '🔧',
+  },
+  {
+    name: 'Student Lounge',
+    description: 'Comfortable lounge area with study spaces, refreshments, and networking opportunities with fellow students.',
+    icon: '☕',
+  },
+  {
+    name: 'Library & Resources',
+    description: 'Comprehensive aviation library with training materials, DGCA publications, and online resource access.',
+    icon: '📚',
+  },
+];
+---
+
+<Layout title="Fleet & Facilities | Birdkanfly Aviation">
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 to-secondary-900 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl animate-fade-in">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Fleet & <span class="gradient-text">Facilities</span>
+          </h1>
+          <p class="text-xl text-slate-300">
+            Modern aircraft and world-class training facilities to provide you the best learning experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fleet Stats -->
+    <section class="py-12 bg-white border-b">
+      <div class="container-custom">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="animate-on-scroll">
+            <div class="font-display text-4xl font-bold gradient-text">17</div>
+            <div class="text-slate-600">Total Aircraft</div>
+          </div>
+          <div class="animate-on-scroll" style="animation-delay: 0.1s;">
+            <div class="font-display text-4xl font-bold gradient-text">4</div>
+            <div class="text-slate-600">Aircraft Types</div>
+          </div>
+          <div class="animate-on-scroll" style="animation-delay: 0.2s;">
+            <div class="font-display text-4xl font-bold gradient-text">2</div>
+            <div class="text-slate-600">Simulators</div>
+          </div>
+          <div class="animate-on-scroll" style="animation-delay: 0.3s;">
+            <div class="font-display text-4xl font-bold gradient-text">99%</div>
+            <div class="text-slate-600">Fleet Availability</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aircraft Fleet -->
+    <section class="section bg-slate-50">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Our <span class="gradient-text">Aircraft Fleet</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Well-maintained, modern aircraft equipped with the latest avionics
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {aircraft.map((plane, index) => (
+            <div class={`card overflow-hidden animate-on-scroll ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div class="grid lg:grid-cols-2">
+                <div class={`aspect-[4/3] lg:aspect-auto ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <img 
+                    src={plane.image} 
+                    alt={plane.name}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-8 lg:p-12 flex flex-col justify-center">
+                  <div class="flex items-center gap-4 mb-4">
+                    <span class="text-sm font-semibold px-3 py-1 rounded-full bg-primary-100 text-primary-600">
+                      {plane.count}
+                    </span>
+                    <span class="text-sm text-slate-500">{plane.type}</span>
+                  </div>
+                  
+                  <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">{plane.name}</h3>
+                  
+                  <!-- Specs -->
+                  <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                      <div class="text-xs text-slate-500 uppercase tracking-wider">Engine</div>
+                      <div class="font-medium">{plane.specs.engine}</div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-500 uppercase tracking-wider">Power</div>
+                      <div class="font-medium">{plane.specs.power}</div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-500 uppercase tracking-wider">Cruise Speed</div>
+                      <div class="font-medium">{plane.specs.cruise}</div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-500 uppercase tracking-wider">Range</div>
+                      <div class="font-medium">{plane.specs.range}</div>
+                    </div>
+                  </div>
+                  
+                  <!-- Features -->
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {plane.features.map(feature => (
+                      <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div class="text-sm text-slate-500">
+                    <strong>Used for:</strong> {plane.usedFor}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Training <span class="gradient-text">Facilities</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Everything you need for a complete aviation education
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {facilities.map((facility, index) => (
+            <div class="card p-6 animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="text-4xl mb-4">{facility.icon}</div>
+              <h3 class="font-display font-semibold text-lg mb-2">{facility.name}</h3>
+              <p class="text-slate-600 text-sm">{facility.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Campus Tour CTA -->
+    <section class="section bg-gradient-to-r from-primary-500 to-secondary-600 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Want to See Our Facilities?
+          </h2>
+          <p class="text-white/80 mb-8">
+            Schedule a campus tour and experience our fleet and facilities firsthand. Meet our instructors and get a feel for life at Birdkanfly.
+          </p>
+          <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary-600 font-semibold hover:bg-slate-100 transition-colors">
+            Schedule a Tour
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

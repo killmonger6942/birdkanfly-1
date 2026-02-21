@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const team = [
+  {
+    name: 'Capt. Rajesh Kumar',
+    role: 'Chief Flight Instructor',
+    hours: '15,000+ flight hours',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+  },
+  {
+    name: 'Capt. Priya Sharma',
+    role: 'Senior Instructor',
+    hours: '8,000+ flight hours',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face',
+  },
+  {
+    name: 'Capt. Arjun Reddy',
+    role: 'Ground School Head',
+    hours: '10,000+ flight hours',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+  },
+  {
+    name: 'Sanjay Mehta',
+    role: 'Operations Manager',
+    hours: 'Aviation Management Expert',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face',
+  },
+];
+
+const values = [
+  { icon: '🛡️', title: 'Safety First', description: 'Safety is non-negotiable. Every decision we make prioritizes the well-being of our students and staff.' },
+  { icon: '🎯', title: 'Excellence', description: 'We strive for excellence in everything we do, from instruction quality to aircraft maintenance.' },
+  { icon: '🤝', title: 'Integrity', description: 'Honest, transparent communication with our students, partners, and regulators.' },
+  { icon: '🚀', title: 'Innovation', description: 'Embracing modern training methods and technology to produce industry-ready pilots.' },
+];
+---
+
+<Layout title="About Us | Birdkanfly Aviation">
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 to-secondary-900 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl animate-fade-in">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            About <span class="gradient-text">Birdkanfly</span>
+          </h1>
+          <p class="text-xl text-slate-300">
+            Founded with a passion for aviation and a commitment to excellence, Birdkanfly Aviation is Mysore's premier flight training academy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="animate-on-scroll">
+            <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
+            <p class="text-slate-600 mb-4">
+              Birdkanfly Aviation was born from a simple belief: everyone deserves access to quality flight training. Located in the aviation-friendly skies of Mysore, we've built an academy that combines world-class instruction with the ideal training environment.
+            </p>
+            <p class="text-slate-600 mb-4">
+              Our founders, experienced airline pilots themselves, noticed a gap in the market — aspiring pilots needed affordable, high-quality training without compromising on safety or standards. That's exactly what we deliver.
+            </p>
+            <p class="text-slate-600">
+              Today, Birdkanfly stands as a testament to what passion combined with expertise can achieve. We're not just training pilots — we're shaping the future of Indian aviation.
+            </p>
+          </div>
+          <div class="animate-on-scroll relative">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&h=600&fit=crop" 
+                alt="Aircraft in flight" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center text-white shadow-xl">
+              <div class="text-center">
+                <div class="font-display text-2xl font-bold">2024</div>
+                <div class="text-sm">Founded</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section bg-slate-50">
+      <div class="container-custom">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card p-8 animate-on-scroll">
+            <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6">
+              🎯
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-4">Our Mission</h3>
+            <p class="text-slate-600">
+              To provide world-class flight training that transforms passionate individuals into skilled, confident, and safety-conscious pilots, while making aviation education accessible and affordable.
+            </p>
+          </div>
+          <div class="card p-8 animate-on-scroll" style="animation-delay: 0.15s;">
+            <div class="w-14 h-14 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6">
+              👁️
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-4">Our Vision</h3>
+            <p class="text-slate-600">
+              To become India's most trusted flight training academy, known for producing exceptional pilots who lead with skill, integrity, and an unwavering commitment to safety.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mysore Advantage -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            The <span class="gradient-text">Mysore Advantage</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Why Mysore is the perfect location for flight training
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center animate-on-scroll">
+            <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl">☀️</div>
+            <h3 class="font-display font-semibold text-lg mb-2">Ideal Weather</h3>
+            <p class="text-slate-600">300+ VFR flyable days per year with excellent visibility and minimal weather disruptions.</p>
+          </div>
+          <div class="text-center animate-on-scroll" style="animation-delay: 0.1s;">
+            <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-2xl flex items-center justify-center text-3xl">🛫</div>
+            <h3 class="font-display font-semibold text-lg mb-2">Less Congested Airspace</h3>
+            <p class="text-slate-600">More flight time, less waiting. Efficient training without the delays of busy metro airports.</p>
+          </div>
+          <div class="text-center animate-on-scroll" style="animation-delay: 0.2s;">
+            <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-2xl flex items-center justify-center text-3xl">💰</div>
+            <h3 class="font-display font-semibold text-lg mb-2">Cost Effective</h3>
+            <p class="text-slate-600">Lower operational costs mean more value for your investment in flight training.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section bg-gradient-to-br from-slate-900 to-secondary-900 text-white">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">
+            The principles that guide everything we do
+          </p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value, index) => (
+            <div class="text-center animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="text-4xl mb-4">{value.icon}</div>
+              <h3 class="font-display font-semibold text-lg mb-2">{value.title}</h3>
+              <p class="text-slate-400 text-sm">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Meet Our <span class="gradient-text">Team</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Experienced professionals dedicated to your success
+          </p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {team.map((member, index) => (
+            <div class="card overflow-hidden group animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="aspect-square overflow-hidden">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="font-display font-semibold text-lg">{member.name}</h3>
+                <p class="text-primary-500 text-sm mb-1">{member.role}</p>
+                <p class="text-slate-500 text-xs">{member.hours}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-slate-50">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Ready to Join Our Family?
+          </h2>
+          <p class="text-slate-600 mb-8">
+            Take the first step towards your aviation career. Our admissions team is ready to guide you through the process.
+          </p>
+          <a href="/contact" class="btn-primary text-lg px-8 py-4">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

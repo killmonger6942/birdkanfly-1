@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const programs = [
+  {
+    id: 'ppl',
+    abbr: 'PPL',
+    title: 'Private Pilot License',
+    tagline: 'Your First Step Into Aviation',
+    duration: '4-6 months',
+    hours: '40+ flying hours',
+    color: 'from-primary-500 to-primary-600',
+    description: 'The Private Pilot License is your gateway to the world of aviation. This program teaches you the fundamentals of flight, navigation, and aircraft systems, allowing you to fly single-engine aircraft for personal use.',
+    eligibility: [
+      'Minimum age: 17 years',
+      'Class 2 Medical Certificate',
+      '10+2 or equivalent qualification',
+      'Good command of English',
+    ],
+    curriculum: [
+      'Aviation meteorology',
+      'Air navigation',
+      'Flight planning',
+      'Aircraft technical general',
+      'Aviation regulations',
+      'Radio telephony',
+    ],
+    outcomes: [
+      'Fly single-engine aircraft',
+      'Carry passengers (non-commercial)',
+      'Foundation for advanced licenses',
+    ],
+  },
+  {
+    id: 'cpl',
+    abbr: 'CPL',
+    title: 'Commercial Pilot License',
+    tagline: 'Turn Your Passion Into a Career',
+    duration: '12-18 months',
+    hours: '200+ flying hours',
+    color: 'from-secondary-500 to-secondary-600',
+    description: 'The Commercial Pilot License allows you to work as a professional pilot. This comprehensive program covers advanced flying techniques, instrument flying, multi-engine operations, and prepares you for a career in aviation.',
+    eligibility: [
+      'Minimum age: 18 years',
+      'Class 1 Medical Certificate',
+      '10+2 with Physics & Mathematics',
+      'Valid PPL (can be obtained during training)',
+    ],
+    curriculum: [
+      'Advanced aerodynamics',
+      'Instrument flight rules (IFR)',
+      'Multi-engine operations',
+      'Performance & flight planning',
+      'Advanced navigation',
+      'Crew resource management',
+    ],
+    outcomes: [
+      'Work as a commercial pilot',
+      'Fly for airlines & charter companies',
+      'Eligible for type ratings',
+    ],
+  },
+  {
+    id: 'fir',
+    abbr: 'FIR',
+    title: 'Flight Instructor Rating',
+    tagline: 'Share Your Knowledge, Shape Future Pilots',
+    duration: '2-3 months',
+    hours: '25+ instructional hours',
+    color: 'from-primary-600 to-secondary-500',
+    description: 'Become a certified flight instructor and share your passion for flying. This program develops your teaching skills and prepares you to train the next generation of pilots while building flight hours.',
+    eligibility: [
+      'Valid CPL holder',
+      'Minimum 200 flight hours',
+      'Class 1 Medical Certificate',
+      'DGCA CPL written exams cleared',
+    ],
+    curriculum: [
+      'Teaching methodology',
+      'Instructional techniques',
+      'Student evaluation',
+      'Syllabus planning',
+      'Safety management',
+      'Effective communication',
+    ],
+    outcomes: [
+      'Become a certified flight instructor',
+      'Build flight hours while earning',
+      'Path to senior instructor ratings',
+    ],
+  },
+  {
+    id: 'type-ratings',
+    abbr: 'TR',
+    title: 'Type Ratings',
+    tagline: 'Specialize in Specific Aircraft',
+    duration: 'Varies by aircraft',
+    hours: 'As per DGCA requirements',
+    color: 'from-slate-600 to-slate-700',
+    description: 'Type ratings certify you to fly specific aircraft types. We offer training partnerships for various commercial aircraft types, helping you transition from training aircraft to the jets you\'ll fly professionally.',
+    eligibility: [
+      'Valid CPL or ATPL',
+      'Class 1 Medical Certificate',
+      'Airline selection/sponsorship',
+    ],
+    curriculum: [
+      'Aircraft-specific systems',
+      'Simulator training',
+      'Line-oriented flight training',
+      'Emergency procedures',
+      'Standard operating procedures',
+    ],
+    outcomes: [
+      'Certified on specific aircraft type',
+      'Ready for airline operations',
+      'Enhanced career opportunities',
+    ],
+  },
+];
+---
+
+<Layout title="Programs | Birdkanfly Aviation">
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 to-secondary-900 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl animate-fade-in">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Our <span class="gradient-text">Programs</span>
+          </h1>
+          <p class="text-xl text-slate-300">
+            Comprehensive flight training programs designed to take you from ground to sky, meeting DGCA standards and industry requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    {programs.map((program, index) => (
+      <section id={program.id} class={`section ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
+        <div class="container-custom">
+          <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <!-- Info -->
+            <div class={`${index % 2 === 1 ? 'lg:order-2' : ''} animate-on-scroll`}>
+              <div class="flex items-center gap-4 mb-6">
+                <span class={`text-lg font-bold px-4 py-2 rounded-full bg-gradient-to-r ${program.color} text-white`}>
+                  {program.abbr}
+                </span>
+                <div class="flex gap-4 text-sm text-slate-500">
+                  <span>⏱️ {program.duration}</span>
+                  <span>✈️ {program.hours}</span>
+                </div>
+              </div>
+              
+              <h2 class="font-display text-3xl md:text-4xl font-bold mb-2">{program.title}</h2>
+              <p class="text-primary-500 font-medium mb-6">{program.tagline}</p>
+              
+              <p class="text-slate-600 mb-8">{program.description}</p>
+              
+              <a href="/contact" class="btn-primary">
+                Enquire About {program.abbr}
+              </a>
+            </div>
+            
+            <!-- Details -->
+            <div class={`${index % 2 === 1 ? 'lg:order-1' : ''} space-y-6 animate-on-scroll`} style="animation-delay: 0.2s;">
+              <!-- Eligibility -->
+              <div class="card p-6">
+                <h3 class="font-display font-semibold text-lg mb-4 flex items-center">
+                  <span class="w-8 h-8 rounded-lg bg-primary-100 text-primary-500 flex items-center justify-center mr-3">✓</span>
+                  Eligibility
+                </h3>
+                <ul class="space-y-2">
+                  {program.eligibility.map(item => (
+                    <li class="text-slate-600 flex items-start">
+                      <span class="text-primary-500 mr-2">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <!-- Curriculum -->
+              <div class="card p-6">
+                <h3 class="font-display font-semibold text-lg mb-4 flex items-center">
+                  <span class="w-8 h-8 rounded-lg bg-secondary-100 text-secondary-500 flex items-center justify-center mr-3">📚</span>
+                  Curriculum Highlights
+                </h3>
+                <div class="grid grid-cols-2 gap-2">
+                  {program.curriculum.map(item => (
+                    <span class="text-slate-600 text-sm flex items-center">
+                      <span class="text-secondary-500 mr-2">•</span>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <!-- Outcomes -->
+              <div class="card p-6">
+                <h3 class="font-display font-semibold text-lg mb-4 flex items-center">
+                  <span class="w-8 h-8 rounded-lg bg-green-100 text-green-500 flex items-center justify-center mr-3">🎯</span>
+                  What You'll Achieve
+                </h3>
+                <ul class="space-y-2">
+                  {program.outcomes.map(item => (
+                    <li class="text-slate-600 flex items-start">
+                      <span class="text-green-500 mr-2">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- Comparison -->
+    <section class="section bg-slate-900 text-white">
+      <div class="container-custom">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Program Comparison</h2>
+          <p class="text-slate-400">Quick overview of our training programs</p>
+        </div>
+        
+        <div class="overflow-x-auto animate-on-scroll">
+          <table class="w-full min-w-[600px]">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="text-left py-4 px-4 font-display">Program</th>
+                <th class="text-left py-4 px-4 font-display">Duration</th>
+                <th class="text-left py-4 px-4 font-display">Flight Hours</th>
+                <th class="text-left py-4 px-4 font-display">Min Age</th>
+                <th class="text-left py-4 px-4 font-display">Career Path</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-800">
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-primary-500 text-sm font-semibold">PPL</span></td>
+                <td class="py-4 px-4 text-slate-400">4-6 months</td>
+                <td class="py-4 px-4 text-slate-400">40+ hours</td>
+                <td class="py-4 px-4 text-slate-400">17 years</td>
+                <td class="py-4 px-4 text-slate-400">Private Flying</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-secondary-500 text-sm font-semibold">CPL</span></td>
+                <td class="py-4 px-4 text-slate-400">12-18 months</td>
+                <td class="py-4 px-4 text-slate-400">200+ hours</td>
+                <td class="py-4 px-4 text-slate-400">18 years</td>
+                <td class="py-4 px-4 text-slate-400">Airlines & Commercial</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-gradient-to-r from-primary-500 to-secondary-500 text-sm font-semibold">FIR</span></td>
+                <td class="py-4 px-4 text-slate-400">2-3 months</td>
+                <td class="py-4 px-4 text-slate-400">25+ hours</td>
+                <td class="py-4 px-4 text-slate-400">CPL Required</td>
+                <td class="py-4 px-4 text-slate-400">Flight Instruction</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Not Sure Which Program Is Right for You?
+          </h2>
+          <p class="text-slate-600 mb-8">
+            Our admissions counselors can help you choose the perfect training path based on your goals, background, and career aspirations.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/contact" class="btn-primary text-lg px-8 py-4">
+              Talk to an Advisor
+            </a>
+            <a href="/admissions" class="btn-outline text-lg px-8 py-4">
+              View Admissions Info
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

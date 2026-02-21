@@ -1,0 +1,303 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Enquiry & Counseling',
+    description: 'Reach out to us via phone, email, or visit our campus. Our admissions team will understand your goals and recommend the right program.',
+  },
+  {
+    number: '02',
+    title: 'Medical Examination',
+    description: 'Obtain your Class 1 or Class 2 medical certificate from a DGCA-approved medical examiner. We can guide you through this process.',
+  },
+  {
+    number: '03',
+    title: 'Document Submission',
+    description: 'Submit required documents including educational certificates, ID proof, medical certificate, and passport-size photographs.',
+  },
+  {
+    number: '04',
+    title: 'Entrance Assessment',
+    description: 'Complete our aptitude assessment covering basic physics, mathematics, and English proficiency. This helps us tailor your training.',
+  },
+  {
+    number: '05',
+    title: 'Fee Payment & Enrollment',
+    description: 'Pay the enrollment fee to secure your seat. We offer flexible payment plans to make your dream more accessible.',
+  },
+  {
+    number: '06',
+    title: 'Begin Training',
+    description: 'Start your ground school classes and prepare for your first flight. Your journey to the skies officially begins!',
+  },
+];
+
+const fees = [
+  {
+    program: 'Private Pilot License (PPL)',
+    duration: '4-6 months',
+    total: '₹12,00,000',
+    includes: ['40+ flying hours', 'Ground school', 'Study materials', 'Exam fees', 'Medical guidance'],
+    note: 'Includes all training costs except personal expenses',
+  },
+  {
+    program: 'Commercial Pilot License (CPL)',
+    duration: '12-18 months',
+    total: '₹45,00,000',
+    includes: ['200+ flying hours', 'PPL integrated', 'Ground school', 'Multi-engine rating', 'Instrument rating', 'Exam fees'],
+    note: 'Comprehensive package from zero to CPL',
+    popular: true,
+  },
+  {
+    program: 'Flight Instructor Rating (FIR)',
+    duration: '2-3 months',
+    total: '₹5,00,000',
+    includes: ['25+ instructional hours', 'Teaching methodology', 'Assessment training', 'Certification'],
+    note: 'For CPL holders only',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What are the age requirements for pilot training?',
+    answer: 'You can start PPL training at 16 years (solo at 16, license at 17). For CPL, the minimum age is 18 years. There is no upper age limit, though airlines may have their own requirements.',
+  },
+  {
+    question: 'Do I need a science background to become a pilot?',
+    answer: 'For CPL, DGCA requires 10+2 with Physics and Mathematics. For PPL, any 10+2 qualification is acceptable. We can guide you on bridge courses if needed.',
+  },
+  {
+    question: 'What if I fail the medical examination?',
+    answer: 'Many conditions are waivable or treatable. We recommend getting a preliminary medical check before enrollment. Our team can guide you through the medical process.',
+  },
+  {
+    question: 'Are there financing options available?',
+    answer: 'Yes, we have partnerships with banks offering education loans for pilot training. We also offer installment payment plans. Speak with our admissions team for details.',
+  },
+  {
+    question: 'What is the success rate of your students?',
+    answer: 'We maintain a high first-attempt pass rate for DGCA exams. Our structured training and experienced instructors ensure students are well-prepared.',
+  },
+  {
+    question: 'Can I work while training for CPL?',
+    answer: 'CPL training is intensive and requires significant time commitment. We recommend focusing full-time on training for optimal progress and safety.',
+  },
+];
+
+const documents = [
+  '10th & 12th mark sheets and certificates',
+  'Valid passport (or applied proof)',
+  'Aadhaar card / PAN card',
+  'Passport-size photographs (8 copies)',
+  'DGCA medical certificate (Class 1/2)',
+  'Birth certificate',
+];
+---
+
+<Layout title="Admissions | Birdkanfly Aviation">
+  <Header />
+  
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-900 to-secondary-900 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl animate-fade-in">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span class="gradient-text">Admissions</span>
+          </h1>
+          <p class="text-xl text-slate-300">
+            Your journey to becoming a pilot starts here. Learn about our admission process, fees, and requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Enrollment <span class="gradient-text">Process</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Simple, transparent steps to begin your aviation journey
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {steps.map((step, index) => (
+            <div class="relative animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="card p-6 h-full">
+                <div class="font-display text-5xl font-bold text-slate-100 absolute top-4 right-4">
+                  {step.number}
+                </div>
+                <div class="relative">
+                  <h3 class="font-display font-semibold text-lg mb-3">{step.title}</h3>
+                  <p class="text-slate-600 text-sm">{step.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Fee Structure -->
+    <section class="section bg-slate-50" id="fees">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Fee <span class="gradient-text">Structure</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Transparent pricing with no hidden costs. Flexible payment options available.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {fees.map((fee, index) => (
+            <div class={`card overflow-hidden animate-on-scroll ${fee.popular ? 'ring-2 ring-primary-500 relative' : ''}`} style={`animation-delay: ${index * 0.15}s`}>
+              {fee.popular && (
+                <div class="absolute top-4 right-4">
+                  <span class="px-3 py-1 bg-primary-500 text-white text-xs font-semibold rounded-full">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+              <div class={`p-8 ${fee.popular ? 'bg-gradient-to-br from-primary-500 to-secondary-600 text-white' : 'bg-white'}`}>
+                <h3 class="font-display text-xl font-bold mb-2">{fee.program}</h3>
+                <p class={`text-sm mb-4 ${fee.popular ? 'text-white/80' : 'text-slate-500'}`}>{fee.duration}</p>
+                <div class="flex items-baseline mb-6">
+                  <span class="font-display text-4xl font-bold">{fee.total}</span>
+                  <span class={`ml-2 text-sm ${fee.popular ? 'text-white/70' : 'text-slate-500'}`}>total</span>
+                </div>
+                
+                <ul class="space-y-3 mb-6">
+                  {fee.includes.map(item => (
+                    <li class={`flex items-start text-sm ${fee.popular ? 'text-white/90' : 'text-slate-600'}`}>
+                      <svg class={`w-5 h-5 mr-2 flex-shrink-0 ${fee.popular ? 'text-white' : 'text-green-500'}`} fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                
+                <p class={`text-xs ${fee.popular ? 'text-white/60' : 'text-slate-400'}`}>
+                  {fee.note}
+                </p>
+              </div>
+              <div class="p-6 bg-slate-50">
+                <a href="/contact" class={`block text-center py-3 rounded-full font-semibold transition-colors ${fee.popular ? 'bg-primary-500 text-white hover:bg-primary-600' : 'bg-slate-200 text-slate-700 hover:bg-slate-300'}`}>
+                  Enquire Now
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-8 text-slate-500 text-sm animate-on-scroll">
+          * Fees are subject to change. Please contact admissions for the latest pricing.
+          <br />EMI options and education loans available.
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Required -->
+    <section class="section bg-white">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="animate-on-scroll">
+            <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+              Documents <span class="gradient-text">Required</span>
+            </h2>
+            <p class="text-slate-600 mb-8">
+              Prepare these documents for a smooth enrollment process. Our team will verify and assist with any documentation queries.
+            </p>
+            
+            <ul class="space-y-4">
+              {documents.map((doc, index) => (
+                <li class="flex items-center animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+                  <div class="w-8 h-8 rounded-full bg-primary-100 text-primary-500 flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <span class="text-slate-700">{doc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="card p-8 bg-gradient-to-br from-primary-50 to-secondary-50 animate-on-scroll">
+            <h3 class="font-display text-xl font-bold mb-4">Need Help with Documentation?</h3>
+            <p class="text-slate-600 mb-6">
+              Our admissions team is here to guide you through every step of the documentation process, including medical certificate procedures.
+            </p>
+            <a href="/contact" class="btn-primary">
+              Contact Admissions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section bg-slate-50">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked <span class="gradient-text">Questions</span>
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Find answers to common questions about admissions and training
+          </p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="card group animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+              <summary class="p-6 cursor-pointer flex items-center justify-between font-display font-semibold hover:text-primary-500 transition-colors">
+                {faq.question}
+                <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-slate-600">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-gradient-to-r from-primary-500 to-secondary-600 text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Ready to Start Your Journey?
+          </h2>
+          <p class="text-white/80 mb-8">
+            Take the first step towards your dream career. Our admissions team is ready to help you get started.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary-600 font-semibold hover:bg-slate-100 transition-colors">
+              Apply Now
+            </a>
+            <a href="tel:+919876543210" class="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white text-white font-semibold hover:bg-white/10 transition-colors">
+              📞 Call +91 98765 43210
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
